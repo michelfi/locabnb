@@ -1,1 +1,125 @@
 // Specific CSS for your home-page
+// Specific CSS for your home-page
+body {
+  background-color: $light-gray;
+  // margin: 0;
+  // padding: 0;
+  // height: 100%;
+}
+
+.btn-primary {
+  background-color: #873600 !important;
+  border-color: #873600 !important;
+}
+
+h1.homepage {
+  color: #873600;
+  font-weight: bolder;
+  font-size: 48px;
+  -webkit-text-stroke: 0.8px #f7f7f7;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+h2.homepage {
+  // font-style: italic;
+  font-size: 24px;
+  color: #f7f7f7;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+  margin-bottom: 20px;
+}
+
+.rounded-background {
+  font-size: 36px;
+  color: #f7f7f7; /* Couleur du texte */
+  background: #873600; /* Couleur de l'arrière-plan */
+  border-radius: 25px; /* Rayon de l'arrondi */
+  padding: 10px 20px; /* Rembourrage pour définir la taille de l'arrière-plan */
+}
+
+.cover-hp {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  .btn {
+    &:hover {
+      color: black;
+    }
+  }
+
+  .btn-delete {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: white;
+
+    &:hover {
+      color: $light-gray;
+    }
+  }
+}
+
+.cards-hp {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+ /* ceci est un test */
+.card-hp {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+  position: relative;
+
+  a {
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      color: $light-gray;
+    }
+  }
+
+}
+
+.text-danger {
+  color: red;
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

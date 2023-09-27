@@ -1,0 +1,18 @@
+<div class="container py-3">
+  <h4 class="rounded-background">🚗Toutes les locations disponibles</h4>
+      <div class="mt-3 cards-hp mx-auto">
+        <% @cars.each do |car| %>
+          <div class="card-trip">
+            <img src="<%= car.banner %>" />
+            <div class="card-trip-infos">
+              <div>
+                 <%= link_to car[:brand], car_path(car[:id]) %>
+                 <p>Modèle : <%= car.model %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= car[:price_per_day] %>€/jour</h2>
+              <img src="<%= car.user.avatar %>" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
+        <% end %>
+      </div>
+</div>

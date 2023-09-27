@@ -1,3 +1,30 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<p>yo c un test</p>
+<!-- Hero Start -->
+<div class="cover-hp p-5 text-center bg-image rounded-3" style="background-image: url('<%= asset_path('banniere.png') %>');">
+  <div class="d-flex align-items-center h-100">
+    <div>
+      <h1 class="homepage mb-3">LocaBNB</h1>
+      <h2 class="homepage mb-5">Une large sélection de voitures à louer entre particuliers.</h2>
+    </div>
+  </div>
+</div>
+
+
+<!-- Main container -->
+<div class="container py-3">
+  <h4 class="rounded-background">Dernières locations en ligne</h4>
+      <div class="mt-3 cards-hp mx-auto">
+        <% @cars.each do |car| %>
+          <div class="card-trip">
+            <img src="<%= car[:banner] %>" />
+            <div class="card-trip-infos">
+              <div>
+                 <strong><%= link_to car[:brand], car_path(car[:id]) %></strong>
+                 <p>Modèle : <%= car.model %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= car[:price_per_day] %>€/jour</h2>
+              <img src="<%= car.user.avatar %>" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
+        <% end %>
+      </div>
+</div>
