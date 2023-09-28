@@ -29,19 +29,18 @@
       <h2>Réserver cette voiture</h2>
       <br>
     <%= form_for @booking do |f| %>
-        <strong class="error-message"><%= f.object.errors[:starts_at].join(", ") if f.object.errors[:starts_at].any? %></strong>
-
-    <div class="col time-slot-inputs">
-      <label for="booking_starts_at">Date de début :</label>
-      <%= f.date_field :starts_at, as: :string, class: 'datepicker-input', input_html: { data: { controller: 'datepicker' } } %>
-    </div>
-    <div class="col time-slot-inputs">
-      <label for="booking_ends_at">Date de fin :</label>
-      <%= f.date_field :ends_at, as: :string, class: 'datepicker-input', input_html: { data: { controller: 'datepicker' } } %>
-    </div>
-    <%= f.hidden_field :car_id, value: @car.id %>
-    <%= f.submit "Réserver", class: "btn btn-primary submit-button text-white" %>
-    <% end %>
+      <strong class="error-message"><%= f.object.errors[:starts_at].join(", ") if f.object.errors[:starts_at].any? %></strong>
+      <div class="col time-slot-inputs">
+        <label for="booking_starts_at">Date de début :</label>
+        <%= f.date_field :starts_at, as: :string, class: 'datepicker-input', input_html: { data: { controller: 'datepicker' } } %>
+      </div>
+      <div class="col time-slot-inputs">
+        <label for="booking_ends_at">Date de fin :</label>
+        <%= f.date_field :ends_at, as: :string, class: 'datepicker-input', input_html: { data: { controller: 'datepicker' } } %>
+      </div>
+      <%= f.hidden_field :car_id, value: @car.id %>
+      <%= f.submit "Réserver", class: "btn btn-primary submit-button text-white" %>
+      <% end %>
     </div>
   </div>
 </div>
@@ -52,6 +51,9 @@
       <a href="/cars" class="btn btn-primary ">Revenir à la liste des voitures</a>
     </div>
   </div>
+</div>
+
+<div id="booking-form-div" data-bookings="<%= @bookings_dates.to_json %>">
 </div>
 
 

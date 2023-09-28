@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
     <title>Locations de voitures entre particuliers</title>
     <link rel="icon" type="image/png" href="<%= asset_path('favicon.png') %>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -16,7 +17,7 @@
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <%= yield %>
   </body>
 </html>

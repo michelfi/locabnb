@@ -1,22 +1,47 @@
-import { Controller } from "@hotwired/stimulus"
-import flatpickr from "flatpickr"; // You need to import this to use new flatpickr()
+// app/javascript/controllers/datepicker_controller.js
+
+import { Controller } from "stimulus";
+import "flatpickr/dist/plugins/rangePlugin";
+import flatpickr from "flatpickr";
 
 export default class extends Controller {
+  static targets = ["dateRange", "startsAt", "endsAt"];
+
   connect() {
-    const datePickerElement = document.getElementsByClassName("datepicker-input"); // Remplacez "datepicker-input" par le bon ID de votre champ de date
-    if (datePickerElement) {
-      flatpickr(datePickerElement, {
-        dateFormat: "Y-m-d", // Format pour afficher la date au format YYYY-MM-DD
+    const dateRangeElement = this.dateRangeTarget;
+    const startsAtElement = this.startsAtTarget;
+    const endsAtElement = this.endsAtTarget;
+
+    if (dateRangeElement) {
+      flatpickr(dateRangeElement, {
+        mode: "range",
+        dateFormat: "Y-m-d",
+        onChange: function (selectedDates, dateStr, instance) {
+          // Mettre à jour starts_at et ends_at avec les dates sélectionnées
+          const selectedDatesArray = dateStr.split(" to ");
+          startsAtElement.value = selectedDatesArray[0];
+          endsAtElement.value = selectedDatesArray[1];
+        },
       });
     }
 
-    const timePickerElement = document.getElementsByClassName("timepicker-input"); // Remplacez "timepicker-input" par le bon ID de votre champ d'heure
+    // Votre code pour le champ d'heure reste inchangé
+    const timePickerElement = document.querySelector(".timepicker-input");
     if (timePickerElement) {
       flatpickr(timePickerElement, {
-        enableTime: true, // Activez la sélection de l'heure
-        noCalendar: true, // Désactivez le calendrier
-        dateFormat: "H:i", // Format pour afficher l'heure au format HH:MM
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
       });
     }
   }
 }
+
+flatpickr('#startDate', {
+  enableTime: true,
+  allowInput: true,
+  dateFormat: "m/d/Y h:iK",
+  "plugins": [new rangePlugin({ input: "#endDate"})]
+});
+
+

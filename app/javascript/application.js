@@ -15,3 +15,9 @@ const application = Application.start()
 const context = require.context("controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
 application.register("flatpickr", FlatpickrController)
+
+import { initFlatpickr } from '../plugins/flatpickr';
+
+document.addEventListener('turbolinks:load', () => {
+  initFlatpickr();
+})
