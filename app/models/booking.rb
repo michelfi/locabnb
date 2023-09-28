@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
 
   def starts_at_must_be_before_ends_at
     if starts_at && ends_at && starts_at >= ends_at
-      errors.add(:starts_at, "Attention ! Votre date de début doit être avant la date de fin !")
+      errors.add(:starts_at, "Attention : veuillez sélectionner une date de début antérieure à la date de fin !")
     end
   end
 end

@@ -97,7 +97,26 @@ h3 {
 
 }
 
-.text-danger {
+/* Style pour les étiquettes de date */
+.time-slot-inputs label {
+  font-weight: bold; /* Ajoutez d'autres styles de texte au besoin */
+}
+
+/* Style pour les champs de date */
+.datepicker-input {
+  width: 100%; /* Ajustez la largeur selon vos besoins */
+  padding: 8px; /* Ajoutez d'autres styles de padding au besoin */
+  border: 1px solid #ccc; /* Ajoutez d'autres styles de bordure au besoin */
+  border-radius: 4px; /* Ajoutez d'autres styles de bordure au besoin */
+}
+
+
+/* Style pour les erreurs de validation */
+.datepicker-input.error {
+  border-color: red; /* Changez la couleur de la bordure en rouge en cas d'erreur */
+}
+
+.error-message {
   color: red;
 }
 
